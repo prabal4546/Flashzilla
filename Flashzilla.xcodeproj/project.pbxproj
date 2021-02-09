@@ -56,8 +56,8 @@
 		916A14F925D25CB90065A91E /* Flashzilla */ = {
 			isa = PBXGroup;
 			children = (
-				916A151225D2B5CD0065A91E /* View */,
 				916A151125D2B5C20065A91E /* Model */,
+				916A151225D2B5CD0065A91E /* View */,
 				916A14FA25D25CB90065A91E /* FlashzillaApp.swift */,
 				916A14FC25D25CB90065A91E /* ContentView.swift */,
 				916A14FE25D25CC10065A91E /* Assets.xcassets */,
