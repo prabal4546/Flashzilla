@@ -56,13 +56,13 @@
 		916A14F925D25CB90065A91E /* Flashzilla */ = {
 			isa = PBXGroup;
 			children = (
+				916A151225D2B5CD0065A91E /* View */,
+				916A151125D2B5C20065A91E /* Model */,
 				916A14FA25D25CB90065A91E /* FlashzillaApp.swift */,
 				916A14FC25D25CB90065A91E /* ContentView.swift */,
 				916A14FE25D25CC10065A91E /* Assets.xcassets */,
 				916A150325D25CC10065A91E /* Info.plist */,
 				916A150025D25CC10065A91E /* Preview Content */,
-				916A150A25D2B57A0065A91E /* Card.swift */,
-				916A150E25D2B5960065A91E /* CardView.swift */,
 			);
 			path = Flashzilla;
 			sourceTree = "<group>";
@@ -73,6 +73,22 @@
 				916A150125D25CC10065A91E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		916A151125D2B5C20065A91E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				916A150A25D2B57A0065A91E /* Card.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		916A151225D2B5CD0065A91E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				916A150E25D2B5960065A91E /* CardView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
