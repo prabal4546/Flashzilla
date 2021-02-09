@@ -11,6 +11,8 @@
 		916A14FD25D25CB90065A91E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916A14FC25D25CB90065A91E /* ContentView.swift */; };
 		916A14FF25D25CC10065A91E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916A14FE25D25CC10065A91E /* Assets.xcassets */; };
 		916A150225D25CC10065A91E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916A150125D25CC10065A91E /* Preview Assets.xcassets */; };
+		916A150B25D2B57A0065A91E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916A150A25D2B57A0065A91E /* Card.swift */; };
+		916A150F25D2B5960065A91E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916A150E25D2B5960065A91E /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		916A14FE25D25CC10065A91E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		916A150125D25CC10065A91E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		916A150325D25CC10065A91E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		916A150A25D2B57A0065A91E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		916A150E25D2B5960065A91E /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 				916A14FE25D25CC10065A91E /* Assets.xcassets */,
 				916A150325D25CC10065A91E /* Info.plist */,
 				916A150025D25CC10065A91E /* Preview Content */,
+				916A150A25D2B57A0065A91E /* Card.swift */,
+				916A150E25D2B5960065A91E /* CardView.swift */,
 			);
 			path = Flashzilla;
 			sourceTree = "<group>";
@@ -139,6 +145,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				916A14FD25D25CB90065A91E /* ContentView.swift in Sources */,
+				916A150B25D2B57A0065A91E /* Card.swift in Sources */,
+				916A150F25D2B5960065A91E /* CardView.swift in Sources */,
 				916A14FB25D25CB90065A91E /* FlashzillaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
