@@ -17,8 +17,14 @@ struct CardView: View {
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 25,style: .continuous)
-                .fill(Color(.white))
+                .fill(
+                    Color.white.opacity(1 - Double(abs(offset.width / 50)))
+                )
                 .shadow(radius: 10)
+                .background(
+                    RoundedRectangle(cornerRadius: 25, style: .continuous)
+                        .fill(offset.width>0 ? Color.green:Color.red)
+                )
             VStack{
                 Text(card.prompt)
                     .font(.title)

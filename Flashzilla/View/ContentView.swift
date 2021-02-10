@@ -23,7 +23,7 @@ struct ContentView: View {
                                 withAnimation{
                                     self.removeCard(at: index)
                                 }
-                            }
+                        }
                         .stacked(at: index, in: self.cards.count)
 
                         
