@@ -17,8 +17,9 @@ struct ContentView: View {
                 .edgesIgnoringSafeArea(.all)
             VStack{
                 ZStack{
-                    ForEach(0..<cards.count,id:\.self){index in
-                        CardView(card: self.cards[index]){
+                    ForEach(0..<cards.count,id:\.self){
+                        index in
+                        CardView(card: self.cards[index]) {
                                 withAnimation{
                                     self.removeCard(at: index)
                                 }

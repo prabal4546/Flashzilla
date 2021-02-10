@@ -43,13 +43,13 @@ struct CardView: View {
             }
             .onEnded{_ in
                 if abs(self.offset.width) > 100 {
-                                // remove the card
+                    // remove the card
                     self.removal?()
-                            } else {
-                                self.offset = .zero
-                            }
+                } else {
+                    self.offset = .zero
+                }
             }
-            )
+        )
         .onTapGesture {
             self.isShowingAnswer.toggle()
         }
