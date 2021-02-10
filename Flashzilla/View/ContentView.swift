@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var cards = [Card](repeating: Card.example, count: 10)
     var body: some View {
         CardView(card: Card.example)
     }
