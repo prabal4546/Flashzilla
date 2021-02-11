@@ -67,9 +67,16 @@ struct ContentView: View {
             }
         }
         .onReceive(timer){time in
+            guard self.isActive else { return }
             if self.timeRemaining > 0 {
                 self.timeRemaining -= 1
             }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification), perform: { _ in
+            self.isActive = false
+        })
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+            self.isActive = true
         }
         
     }
