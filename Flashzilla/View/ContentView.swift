@@ -10,7 +10,10 @@ import SwiftUI
 struct ContentView: View {
     @State private var cards = [Card](repeating: Card.example, count: 10)
     @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
-
+    
+    @State private var timeRemaining = 100
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var isActive = true
     var body: some View {
         ZStack{
             Image("background")
@@ -18,10 +21,16 @@ struct ContentView: View {
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
             VStack{
+                Text("Timer:\(timeRemaining)")
+                    .font(.largeTitle)
+                    .foregroundColor(.white)
+                    .padding(.horizontal,20)
+                    .padding(.vertical,5)
+                    .background(Capsule())
                 ZStack{
                     ForEach(0..<cards.count,id:\.self){
                         index in
-                        CardView(card: self.cards[index]) {
+                        CardView(card: self.cards[index]){
                                 withAnimation{
                                     self.removeCard(at: index)
                                 }
@@ -53,6 +62,12 @@ struct ContentView: View {
                 }
             }
         }
+        .onReceive(timer){time in
+            if self.timeRemaining > 0 {
+                self.timeRemaining -= 1
+            }
+        }
+        
     }
     func removeCard(at index: Int) {
         cards.remove(at: index)
