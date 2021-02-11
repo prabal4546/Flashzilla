@@ -9,12 +9,16 @@ import SwiftUI
 
 struct CardView: View {
     
-    @State private var offset = CGSize.zero
-    @State private var isShowingAnswer = false
     @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
+     @Environment(\.accessibilityEnabled) var accessibilityEnabled
 
-    var removal: (() -> Void)? = nil
-    let card:Card
+     let card: Card
+
+     var removal: (() -> Void)? = nil
+
+     @State private var feedback = UINotificationFeedbackGenerator()
+     @State private var isShowingAnswer = false
+     @State private var offset = CGSize.zero
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 25,style: .continuous)

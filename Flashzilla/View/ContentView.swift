@@ -26,7 +26,11 @@ struct ContentView: View {
                     .foregroundColor(.white)
                     .padding(.horizontal,20)
                     .padding(.vertical,5)
-                    .background(Capsule())
+                    .background(
+                        Capsule()
+                            .fill(Color.black)
+                            .opacity(0.75)
+                    )
                 ZStack{
                     ForEach(0..<cards.count,id:\.self){
                         index in
@@ -70,6 +74,7 @@ struct ContentView: View {
         
     }
     func removeCard(at index: Int) {
+        guard index >= 0 else { return }
         cards.remove(at: index)
     }
 }
