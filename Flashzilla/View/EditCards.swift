@@ -37,8 +37,10 @@ struct EditCards: View {
                         .navigationBarItems(trailing: Button("Done", action: dismiss))
                         .listStyle(GroupedListStyle())
                         .onAppear(perform: loadData)
+            
             //
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     func addCard(){
         let trimmedPrompt = newPrompt.trimmingCharacters(in: .whitespaces)
