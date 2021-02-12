@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var cards = [Card](repeating: Card.example, count: 10)
+    @State private var cards = [Card]()
     @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
     @Environment(\.accessibilityEnabled) var accessibilityEnabled
     
@@ -126,6 +126,9 @@ struct ContentView: View {
             
            }
         }
+        .sheet(isPresented: $showingEditScreen, onDismiss: resetCards){
+            EditCards()
+        }.onAppear(perform: resetCards)
         
     }
     func removeCard(at index: Int) {
@@ -136,9 +139,16 @@ struct ContentView: View {
         }
     }
     func resetCards(){
-        cards = [Card](repeating: Card.example, count: 10)
         isActive = true
         timeRemaining = 100
+        loadData()
+    }
+    func loadData(){
+        if let data = UserDefaults.standard.data(forKey: "Cards"){
+            if let decoded = try? JSONDecoder().decode([Card].self, from: data){
+                self.cards = decoded
+            }
+        }
     }
 }
 

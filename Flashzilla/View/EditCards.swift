@@ -20,7 +20,24 @@ struct EditCards: View {
                     TextField("Answer",text: $newAnswer)
                     Button("Add Card", action: addCard)
                 }
+            
+            Section {
+                ForEach(0..<cards.count, id: \.self) { index in
+                    VStack(alignment: .leading) {
+                        Text(self.cards[index].prompt)
+                            .font(.headline)
+                        Text(self.cards[index].answer)
+                            .foregroundColor(.secondary)
+                    }
+                }
+                .onDelete(perform: removeCards)
             }
+            }
+            .navigationBarTitle("Edit Cards")
+                        .navigationBarItems(trailing: Button("Done", action: dismiss))
+                        .listStyle(GroupedListStyle())
+                        .onAppear(perform: loadData)
+            //
         }
     }
     func addCard(){
