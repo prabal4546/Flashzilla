@@ -11,6 +11,7 @@ struct CardView: View {
     
     @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
      @Environment(\.accessibilityEnabled) var accessibilityEnabled
+    
 
      let card: Card
 
