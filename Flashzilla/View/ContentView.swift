@@ -13,6 +13,7 @@ struct ContentView: View {
     @Environment(\.accessibilityEnabled) var accessibilityEnabled
     
     @State private var showingEditScreen = false
+    @State private var showingAlert = false
     @State private var timeRemaining = 100
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State private var isActive = true
@@ -22,17 +23,18 @@ struct ContentView: View {
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
-            VStack{
-                Text("Timer:\(timeRemaining)")
-                    .font(.largeTitle)
-                    .foregroundColor(.white)
-                    .padding(.horizontal,20)
-                    .padding(.vertical,5)
-                    .background(
-                        Capsule()
-                            .fill(Color.black)
-                            .opacity(0.75)
-                    )
+            VStack {
+                            Text("Time: \(timeRemaining)")
+                                .font(.largeTitle)
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 20)
+                                .padding(.vertical, 5)
+                                .background(
+                                    Capsule()
+                                        .fill(Color.black)
+                                        .opacity(0.75)
+                                )
+             
                 ZStack{
                     ForEach(0..<cards.count,id:\.self){
                         index in
@@ -43,6 +45,7 @@ struct ContentView: View {
                         }
                         .stacked(at: index, in: self.cards.count)
                         .allowsHitTesting(index == self.cards.count-1)
+                        .accessibility(hidden: index < self.cards.count - 1)
                         
                     }
                 }
@@ -57,7 +60,7 @@ struct ContentView: View {
             }
             VStack{
                 HStack{
-                    padding()
+                    Spacer()
                     Button(action:{
                         self.showingEditScreen = true
                     }){
@@ -72,6 +75,9 @@ struct ContentView: View {
             .foregroundColor(.white)
             .font(.largeTitle)
             .padding()
+            
+         
+           
             if differentiateWithoutColor || accessibilityEnabled {
                 VStack {
                     Spacer()
@@ -115,7 +121,15 @@ struct ContentView: View {
             if self.timeRemaining > 0 {
                 self.timeRemaining -= 1
             }
+            if self.timeRemaining == 0{
+                self.showingAlert = true
+            }
         }
+        .alert(isPresented: $showingAlert) {
+            Alert(title: Text("Game Over"), message: Text("Time's Up"), dismissButton:Alert.Button.default(Text("Start Again")){
+                self.resetCards()
+            })
+                }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification), perform: { _ in
             self.isActive = false
         })
