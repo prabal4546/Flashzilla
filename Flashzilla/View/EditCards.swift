@@ -34,7 +34,8 @@ struct EditCards: View {
             }
             }
             .navigationBarTitle("Edit Cards")
-                        .navigationBarItems(trailing: Button("Done", action: dismiss))
+            .navigationBarItems(
+                trailing: Button("Done", action: dismiss))
                         .listStyle(GroupedListStyle())
                         .onAppear(perform: loadData)
             
