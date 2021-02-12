@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CardView: View {
     
+    
     @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
      @Environment(\.accessibilityEnabled) var accessibilityEnabled
 
@@ -52,10 +53,15 @@ struct CardView: View {
         DragGesture()
             .onChanged {gesture in
                 self.offset = gesture.translation
-                
+                self.feedback.prepare()
             }
             .onEnded{_ in
                 if abs(self.offset.width) > 100 {
+                    if self.offset.width > 0{
+                        self.feedback.notificationOccurred(.success)
+                    }else{
+                        self.feedback.notificationOccurred(.error)
+                    }
                     // remove the card
                     self.removal?()
                 } else {
